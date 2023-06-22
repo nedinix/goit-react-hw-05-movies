@@ -1,16 +1,23 @@
+// import { Route, Routes } from 'react-router-dom';
+
+import { fetchPopularFilms } from 'api-service/api-service';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    // <Routes>
+    //   <Route path="/" element={<></>}>
+    //     <Route index element={<></>} />
+    //     <Route path="/movies" element={<></>} />
+    //     <Route path="/movies/:movieId" element={<></>}>
+    //       <Route path="/cast" element={<></>} />
+    //       <Route path="/reviews" element={<></>} />
+    //     </Route>
+    //   </Route>
+    // </Routes>
+    <>
+      <button type="button" onClick={fetchPopularFilms}>
+        button
+      </button>
+    </>
   );
 };
