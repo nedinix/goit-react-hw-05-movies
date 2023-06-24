@@ -1,10 +1,19 @@
-const Header = () => {
+import { Outlet } from 'react-router-dom';
+import { Container } from '../App';
+import { HeaderStyled, NavLinkStyled } from './Header.styled';
+
+export const Header = () => {
   return (
-    <header>
-      <nav>
-        <a href="">home</a>
-        <a href="">movies</a>
-      </nav>
-    </header>
+    <>
+      <HeaderStyled>
+        <Container>
+          <nav>
+            <NavLinkStyled to="/">home</NavLinkStyled>
+            <NavLinkStyled to="/movies">movies</NavLinkStyled>
+          </nav>
+        </Container>
+      </HeaderStyled>
+      <Outlet />
+    </>
   );
 };
