@@ -1,16 +1,17 @@
 import axios from 'axios';
 
-const ACCESS_TOKEN_AUTH =
-  'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYzAwMzY5MjM1NGU2MGRkMTkxZDU3ZjIyNDE5M2ViYyIsInN1YiI6IjY0OTRiYzBkOTdlYWI0MDE0NjUzYTg0OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.eRloYStb0E7htYX_KZc4cK1BXIC7CsOABKJUGMS2eo4';
+const API_KEY = 'fc003692354e60dd191d57f224193ebc';
 
-axios.defaults.baseURL = 'https://api.themoviedb.org/3/movie/popular';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 axios.defaults.headers = {
   accept: 'application/json',
-  Authorization: ACCESS_TOKEN_AUTH,
+};
+const options = {
+  api_key: API_KEY,
 };
 
 export const fetchPopularFilms = async () => {
-  const response = await axios.get('');
-  console.log(response.data.results);
+  const response = await axios.get('movie/popular', options);
+  console.log(response);
   return response.data.results;
 };
