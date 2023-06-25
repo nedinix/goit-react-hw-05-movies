@@ -12,7 +12,6 @@ export const useFetchTrendingMovies = () => {
     const fetchData = async () => {
       try {
         const response = await fetchTrendingMovies();
-        console.log(response);
         setMovies(response);
       } catch (error) {
         setError(error.message);

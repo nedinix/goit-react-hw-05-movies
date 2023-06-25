@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = 'fc003692354e60dd191d57f224193ebc';
+// const API_KEY = 'fc003692354e60dd191d57f224193ebc';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 axios.defaults.headers = {
@@ -10,8 +10,13 @@ axios.defaults.headers = {
 };
 
 export const fetchTrendingMovies = async () => {
-  const response = await axios.get('movie/popular');
+  const response = await axios.get('trending/movie/day');
   return response.data.results;
+};
+
+export const fetchMovieById = async id => {
+  const response = await axios.get(`movie/${id}`);
+  return response.data;
 };
 
 export const fetchFilmsBySearch = async value => {

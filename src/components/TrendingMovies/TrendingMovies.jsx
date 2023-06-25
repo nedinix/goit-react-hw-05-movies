@@ -1,3 +1,5 @@
+import { LinkStyled } from './TrendingMovies.styled';
+
 export const TrendingMovies = ({ movies }) => {
   return (
     <>
@@ -5,7 +7,9 @@ export const TrendingMovies = ({ movies }) => {
       <ul>
         {movies.map(({ id, title }) => (
           <li key={id}>
-            <p>{title}</p>
+            <LinkStyled to={`movies/${id}`}>
+              <p>{title}</p>
+            </LinkStyled>
           </li>
         ))}
       </ul>
