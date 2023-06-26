@@ -11,10 +11,10 @@ const Movies = () => {
   const handleSubmit = ({ searchQuery }) => {
     if (!searchQuery) {
       setSearchParams({});
+
       return;
     }
     setSearchParams({ query: searchQuery });
-    console.log('search:', searchQuery);
   };
 
   const { movies, isLoading, error } = useFetchMoviesByName();

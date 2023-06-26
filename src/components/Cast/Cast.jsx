@@ -1,19 +1,20 @@
 import { Loader } from 'components/Loader';
 import { useFetchMovieCasts } from 'hooks/useFetchMovieCasts';
+import { CastList } from './Cast.styled';
 
 const Cast = () => {
   const { movieCasts, isLoading, error } = useFetchMovieCasts();
   return (
     <>
       {isLoading && <Loader />}
-      <ul>
+      <CastList>
         {movieCasts.map(({ id, name, profile_path, character }) => {
           return (
             <li key={id}>
               <img
                 src={`https://image.tmdb.org/t/p/w500${profile_path}`}
                 alt={name}
-                height="240"
+                width="160"
               />
               <p>
                 <strong>Name: </strong>
@@ -26,7 +27,7 @@ const Cast = () => {
             </li>
           );
         })}
-      </ul>
+      </CastList>
       {error && <p>{error}</p>}
     </>
   );

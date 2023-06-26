@@ -10,3 +10,20 @@ export const LinkStyled = styled(Link)`
     color: ${colors.linkTextHover};
   }
 `;
+
+export const ListItemStyled = styled.li`
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+`;
+
+export const ListStyled = styled.ul`
+  margin: 0;
+  padding-left: 18px;
+  list-style-type: square;
+
+  * {
+    /* margin: 0; */
+    /* padding: 0; */
+  }
+`;
