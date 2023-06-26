@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { Field } from 'formik';
-import { colors } from 'helpers';
 
 export const FormWrapper = styled.div`
   display: flex;
