@@ -1,5 +1,5 @@
 import { Loader } from 'components/Loader';
-import { TrendingMovies } from 'components/TrendingMovies/TrendingMovies';
+import { MoviesList } from 'components/MoviesList/MoviesList';
 import { useFetchTrendingMovies } from 'hooks';
 
 export const Home = () => {
@@ -8,7 +8,7 @@ export const Home = () => {
     <section>
       <h2>Trending today</h2>
       {isLoading && <Loader />}
-      <TrendingMovies movies={movies} />
+      <MoviesList movies={movies} />
       {error && <p>{error}</p>}
     </section>
   );

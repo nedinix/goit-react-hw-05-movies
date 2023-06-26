@@ -4,7 +4,7 @@ import { Header } from 'components/Header';
 import { Container } from 'components/App';
 import { Loader } from 'components/Loader';
 
-export const Layout = () => {
+export const SharedLayout = () => {
   return (
     <>
       <Header />

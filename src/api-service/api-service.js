@@ -20,8 +20,12 @@ export const fetchMovieById = async id => {
 };
 
 export const fetchMoviesByName = async value => {
-  const response = await axios.get(`search/movie?query=${value}`, {
-    include_adult: false,
+  if (!value) return;
+  const response = await axios.get(`search/movie`, {
+    params: {
+      query: value,
+      include_adult: false,
+    },
   });
   console.log('response', response);
   return response.data.results;

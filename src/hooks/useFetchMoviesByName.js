@@ -6,20 +6,17 @@ export const useFetchMoviesByName = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
   const [searchParams] = useSearchParams();
-
   const query = searchParams.get('query');
-  console.log('query:', query);
 
   useEffect(() => {
-    console.log('update');
+    // if (!query) return;
+
     setIsLoading(true);
     setMovies([]);
     const fetchData = async () => {
       try {
         const response = await fetchMoviesByName(query);
-        console.log(response);
         setMovies(response);
       } catch (error) {
         setError(error.message);
@@ -28,7 +25,7 @@ export const useFetchMoviesByName = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [query]);
 
   return { movies, isLoading, error };
 };

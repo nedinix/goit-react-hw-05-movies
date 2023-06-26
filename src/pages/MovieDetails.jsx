@@ -5,7 +5,6 @@ import { Outlet } from 'react-router-dom';
 
 export const MovieDetails = () => {
   const { movie, isLoading, error } = useFetchMovieById();
-  console.log(movie);
   const { title, id, poster_path, status, vote_average, overview, genres } =
     movie;
 

@@ -7,14 +7,15 @@ export const useFetchMovieById = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const { movieId } = useParams();
+  console.log(movieId);
 
   useEffect(() => {
+    if (!movieId) return;
     setIsLoading(true);
     setMovie({});
     const fetchData = async () => {
       try {
         const response = await fetchMovieById(movieId);
-        console.log('response', response);
         setMovie(response);
       } catch (error) {
         setError(error.message);
