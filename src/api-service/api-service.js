@@ -31,14 +31,14 @@ export const fetchMoviesByName = async value => {
   return response.data.results;
 };
 
-export const fetchCast = async id => {
+export const fetchMovieCast = async id => {
   const response = await axios.get(`movie/${id}/credits`);
   console.log(response);
-  return response;
+  return response.data.cast;
 };
 
-export const fetchReviews = async id => {
+export const fetchMovieReviews = async id => {
   const response = await axios.get(`movie/${id}/reviews`);
   console.log(response);
-  return response;
+  return response.data.results;
 };

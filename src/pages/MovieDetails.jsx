@@ -1,40 +1,38 @@
 import { Loader } from 'components/Loader';
 import { MovieCard } from 'components/MovieCard';
+import { GoBackLink } from 'components/GoBackLink/GoBackLink';
 import { useFetchMovieById } from 'hooks/useFetchMovieById';
-import { Outlet, Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
+import { routes } from 'service/routes-service';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movie, isLoading, error } = useFetchMovieById();
-  const { title, id, poster_path, status, vote_average, overview, genres } =
-    movie;
+  // const { id } = movie;
 
   return (
     <>
       {isLoading && <Loader />}
       {movie && (
         <section>
-          <MovieCard
-            title={title}
-            id={id}
-            poster_link={poster_path}
-            status={status}
-            userScore={vote_average}
-            overview={overview}
-            genres={genres}
-          />
+          <GoBackLink />
+          <MovieCard movie={movie} />
           <div>
             <p>Additional information</p>
             <ul>
               <li>
-                <Link to="casts">cast</Link>
+                <Link to={routes.CAST}>Casts</Link>
               </li>
-              <li>Reviews</li>
+              <li>
+                <Link to={routes.REVIEWS}>Reviews</Link>
+              </li>
             </ul>
+            <Outlet />
           </div>
         </section>
       )}
       {error && <p>{error}</p>}
-      <Outlet />
     </>
   );
 };
+
+export default MovieDetails;

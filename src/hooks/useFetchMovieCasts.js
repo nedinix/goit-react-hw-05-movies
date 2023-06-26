@@ -1,8 +1,8 @@
-import { fetchCast } from 'api-service/api-service';
+import { fetchMovieCast } from 'api-service/api-service';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-export const useFetchCasts = () => {
+export const useFetchMovieCasts = () => {
   const [movieCasts, setMovieCasts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -15,7 +15,7 @@ export const useFetchCasts = () => {
     setMovieCasts([]);
     const fetchData = async () => {
       try {
-        const response = await fetchCast(movieId);
+        const response = await fetchMovieCast(movieId);
         console.log(response);
         setMovieCasts(response);
       } catch (error) {

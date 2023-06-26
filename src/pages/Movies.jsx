@@ -4,7 +4,7 @@ import { MoviesList } from 'components/MoviesList';
 import { Loader } from 'components/Loader';
 import { SearchMovie } from 'components/SearchMovie';
 
-export const Movies = () => {
+const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
 
@@ -29,3 +29,5 @@ export const Movies = () => {
     </section>
   );
 };
+
+export default Movies;
