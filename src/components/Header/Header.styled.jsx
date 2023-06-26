@@ -15,7 +15,7 @@ export const NavLinkStyled = styled(NavLink)`
   color: #434852;
 
   &.active {
-    color: #e9762a;
+    color: #2c9bdb;
   }
   &:not(:last-child) {
     margin-right: 8px;
