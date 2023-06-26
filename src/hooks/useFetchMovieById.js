@@ -6,8 +6,8 @@ export const useFetchMovieById = () => {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
   const { movieId } = useParams();
-  console.log(movieId);
 
   useEffect(() => {
     if (!movieId) return;

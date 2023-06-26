@@ -6,7 +6,9 @@ export const MovieCard = ({
   overview,
   genres,
 }) => {
-  const normalizedGenres = genres && genres.map(({ name }) => name).join(', ');
+  const normalizedGenres = genres
+    ? genres.map(({ name }) => name).join(', ')
+    : 'none';
   return (
     <div>
       <div>

@@ -1,7 +1,7 @@
 import { Loader } from 'components/Loader';
 import { MovieCard } from 'components/MovieCard';
 import { useFetchMovieById } from 'hooks/useFetchMovieById';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 
 export const MovieDetails = () => {
   const { movie, isLoading, error } = useFetchMovieById();
@@ -25,7 +25,9 @@ export const MovieDetails = () => {
           <div>
             <p>Additional information</p>
             <ul>
-              <li>cast</li>
+              <li>
+                <Link to="casts">cast</Link>
+              </li>
               <li>Reviews</li>
             </ul>
           </div>

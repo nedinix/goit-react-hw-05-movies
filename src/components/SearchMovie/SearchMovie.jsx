@@ -1,11 +1,22 @@
-import { Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
+import { ButtonStyled, FieldStyled, FormWrapper } from './SearchMovie.styled';
 
-export const SearchMovie = ({ initialValues, onSubmit }) => {
+export const SearchMovie = ({ query, onSubmit }) => {
+  const initialValues = {
+    searchQuery: query ? query : '',
+  };
+
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
       <Form>
-        <Field type="text" name="searchQuery" />
-        <button type="submit">Search</button>
+        <FormWrapper>
+          <FieldStyled
+            type="text"
+            name="searchQuery"
+            placeholder="Search movie by name"
+          />
+          <ButtonStyled type="submit">Search</ButtonStyled>
+        </FormWrapper>
       </Form>
     </Formik>
   );

@@ -6,25 +6,22 @@ import { SearchMovie } from 'components/SearchMovie';
 
 export const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log('searchParams: ', searchParams.get('query'));
   const query = searchParams.get('query');
 
   const handleSubmit = ({ searchQuery }) => {
+    if (!searchQuery) {
+      setSearchParams({});
+      return;
+    }
     setSearchParams({ query: searchQuery });
     console.log('search:', searchQuery);
-    if (!searchQuery) return;
-  };
-
-  const initialValues = {
-    searchQuery: query ? query : null,
   };
 
   const { movies, isLoading, error } = useFetchMoviesByName();
-  // console.log('movies', movies);
   return (
     <section>
       <h2>Movies</h2>
-      <SearchMovie initialValues={initialValues} onSubmit={handleSubmit} />
+      <SearchMovie query={query} onSubmit={handleSubmit} />
       {isLoading && <Loader />}
       {movies && <MoviesList movies={movies} />}
       {error && <p>{error}</p>}
