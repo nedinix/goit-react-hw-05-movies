@@ -2,7 +2,7 @@ import { Loader } from 'components/Loader';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { useFetchTrendingMovies } from 'hooks';
 
-export const Home = () => {
+const Home = () => {
   const { movies, isLoading, error } = useFetchTrendingMovies();
   return (
     <section>
@@ -13,3 +13,5 @@ export const Home = () => {
     </section>
   );
 };
+
+export default Home;

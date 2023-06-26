@@ -1,9 +1,9 @@
-import { fetchMovieById } from 'api-service/api-service';
+import { fetchMovieReviews } from 'api-service/api-service';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-export const useFetchMovieById = () => {
-  const [movie, setMovie] = useState({});
+export const useFetchMovieReviews = () => {
+  const [movieReviews, setMovieReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -12,11 +12,12 @@ export const useFetchMovieById = () => {
   useEffect(() => {
     if (!movieId) return;
     setIsLoading(true);
-    setMovie({});
+    setMovieReviews([]);
     const fetchData = async () => {
       try {
-        const response = await fetchMovieById(movieId);
-        setMovie(response);
+        const response = await fetchMovieReviews(movieId);
+        console.log(response);
+        setMovieReviews(response);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -26,5 +27,5 @@ export const useFetchMovieById = () => {
     fetchData();
   }, [movieId]);
 
-  return { movie, isLoading, error };
+  return { movieReviews, isLoading, error };
 };

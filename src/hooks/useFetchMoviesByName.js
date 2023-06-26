@@ -6,14 +6,17 @@ export const useFetchMoviesByName = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
   const [searchParams] = useSearchParams();
   const query = searchParams.get('query');
 
   useEffect(() => {
-    // if (!query) return;
+    if (!query) {
+      setMovies([]);
+      return;
+    }
 
     setIsLoading(true);
-    setMovies([]);
     const fetchData = async () => {
       try {
         const response = await fetchMoviesByName(query);
