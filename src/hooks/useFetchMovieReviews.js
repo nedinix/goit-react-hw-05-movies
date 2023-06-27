@@ -16,8 +16,9 @@ export const useFetchMovieReviews = () => {
     const fetchData = async () => {
       try {
         const response = await fetchMovieReviews(movieId);
+        if (!response.length)
+          throw new Error('Sorry. There are no reviews ... ');
         setMovieReviews(response);
-        if (!response) throw new Error('Sorry. There are no reviews ... ');
       } catch (error) {
         setError(error.message);
       } finally {

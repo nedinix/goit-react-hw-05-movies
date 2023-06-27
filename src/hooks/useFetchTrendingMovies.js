@@ -12,8 +12,9 @@ export const useFetchTrendingMovies = () => {
     const fetchData = async () => {
       try {
         const response = await fetchTrendingMovies();
+        if (!response.length)
+          throw new Error('Sorry. There are no movies ... ');
         setMovies(response);
-        if (!response) throw new Error('Sorry. There are no movies ... ');
       } catch (error) {
         setError(error.message);
       } finally {
