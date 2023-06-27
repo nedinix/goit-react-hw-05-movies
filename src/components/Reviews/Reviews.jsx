@@ -7,9 +7,9 @@ const Reviews = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <ReviewsListStyled>
-        {movieReviews &&
-          movieReviews.map(({ id, author, updated_at, content }) => {
+      {movieReviews && (
+        <ReviewsListStyled>
+          {movieReviews.map(({ id, author, updated_at, content }) => {
             const normUpdDate = new Date(updated_at).toUTCString();
             return (
               <li key={id}>
@@ -21,7 +21,8 @@ const Reviews = () => {
               </li>
             );
           })}
-      </ReviewsListStyled>
+        </ReviewsListStyled>
+      )}
       {error && <p>{error}</p>}
     </>
   );

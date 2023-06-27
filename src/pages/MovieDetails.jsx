@@ -5,11 +5,10 @@ import { useFetchMovieById } from 'hooks/useFetchMovieById';
 
 const MovieDetails = () => {
   const { movie, isLoading, error } = useFetchMovieById();
-
   return (
     <>
       {isLoading && <Loader />}
-      {movie && (
+      {!!Object.keys(movie).length && (
         <section>
           <GoBackLink />
           <MovieCard movie={movie} />

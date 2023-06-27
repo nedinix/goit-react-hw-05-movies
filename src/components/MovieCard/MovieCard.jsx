@@ -13,7 +13,6 @@ import { Loader } from 'components/Loader';
 
 export const MovieCard = ({ movie }) => {
   const { title, poster_path, status, vote_average, overview, genres } = movie;
-
   const normalizedGenres = genres
     ? genres.map(({ name }) => name).join(', ')
     : 'none';
