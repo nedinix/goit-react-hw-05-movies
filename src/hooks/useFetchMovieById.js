@@ -17,6 +17,7 @@ export const useFetchMovieById = () => {
       try {
         const response = await fetchMovieById(movieId);
         setMovie(response);
+        if (!response) throw new Error('Sorry. There are no movies ... ');
       } catch (error) {
         setError(error.message);
       } finally {

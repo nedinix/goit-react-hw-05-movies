@@ -3,9 +3,11 @@ import { routes } from 'service/routes-service';
 import {
   CardWrapper,
   DescriptionBlock,
+  InfoList,
   InfoWrapper,
   PosterImage,
 } from './MovieCard.styled';
+import PropTypes from 'prop-types';
 
 export const MovieCard = ({ movie }) => {
   const { title, poster_path, status, vote_average, overview, genres } = movie;
@@ -32,18 +34,31 @@ export const MovieCard = ({ movie }) => {
           <p>{normalizedGenres}</p>
         </DescriptionBlock>
       </CardWrapper>
-      <InfoWrapper>
-        <p>Additional information</p>
-        <ul>
-          <li>
-            <Link to={routes.CAST}>Casts</Link>
-          </li>
-          <li>
-            <Link to={routes.REVIEWS}>Reviews</Link>
-          </li>
-        </ul>
+      <div>
+        <InfoWrapper>
+          <p>Additional information</p>
+          <InfoList>
+            <li>
+              <Link to={routes.CAST}>Casts</Link>
+            </li>
+            <li>
+              <Link to={routes.REVIEWS}>Reviews</Link>
+            </li>
+          </InfoList>
+        </InfoWrapper>
         <Outlet />
-      </InfoWrapper>
+      </div>
     </>
   );
+};
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    poster_path: PropTypes.string,
+    status: PropTypes.string,
+    vote_average: PropTypes.number,
+    overview: PropTypes.string,
+    genres: PropTypes.array,
+  }),
 };

@@ -21,9 +21,4 @@ export const ListStyled = styled.ul`
   margin: 0;
   padding-left: 18px;
   list-style-type: square;
-
-  * {
-    /* margin: 0; */
-    /* padding: 0; */
-  }
 `;

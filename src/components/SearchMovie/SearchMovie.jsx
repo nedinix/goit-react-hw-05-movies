@@ -1,5 +1,6 @@
 import { Form, Formik } from 'formik';
 import { ButtonStyled, FieldStyled, FormWrapper } from './SearchMovie.styled';
+import PropTypes from 'prop-types';
 
 export const SearchMovie = ({ query, onSubmit }) => {
   const initialValues = {
@@ -20,4 +21,9 @@ export const SearchMovie = ({ query, onSubmit }) => {
       </Form>
     </Formik>
   );
+};
+
+SearchMovie.propTypes = {
+  query: PropTypes.string,
+  onSubmit: PropTypes.func.isRequired,
 };

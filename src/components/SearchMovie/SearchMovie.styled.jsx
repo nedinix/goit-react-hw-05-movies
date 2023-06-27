@@ -18,7 +18,7 @@ export const FieldStyled = styled(Field)`
 
   border: 1px solid transparent;
   border-radius: 2px;
-  outline: 1px solid gray;
+  outline: 1px solid #646363;
 
   &::placeholder {
     color: #646363;

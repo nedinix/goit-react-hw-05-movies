@@ -1,29 +1,27 @@
 import { useFetchMovieReviews } from 'hooks/useFetchMovieReviews';
 import { Loader } from 'components/Loader';
+import { ReviewDate, ReviewsListStyled } from './Reviews.styled';
 
 const Reviews = () => {
   const { movieReviews, isLoading, error } = useFetchMovieReviews();
   return (
     <>
       {isLoading && <Loader />}
-      <ul>
+      <ReviewsListStyled>
         {movieReviews &&
           movieReviews.map(({ id, author, updated_at, content }) => {
+            const normUpdDate = new Date(updated_at).toUTCString();
             return (
               <li key={id}>
                 <p>
-                  <strong>Author: </strong>
-                  {author}
-                </p>
-                <p>
-                  <strong>Review: </strong>
+                  <strong>{author}</strong>
                 </p>
                 <p>{content}</p>
-                <p>{updated_at}</p>
+                <ReviewDate>{normUpdDate}</ReviewDate>
               </li>
             );
           })}
-      </ul>
+      </ReviewsListStyled>
       {error && <p>{error}</p>}
     </>
   );

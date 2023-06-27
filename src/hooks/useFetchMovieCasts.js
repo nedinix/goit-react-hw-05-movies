@@ -16,8 +16,8 @@ export const useFetchMovieCasts = () => {
     const fetchData = async () => {
       try {
         const response = await fetchMovieCast(movieId);
-        console.log(response);
         setMovieCasts(response);
+        if (!response) throw new Error('Sorry. There are no cast ... ');
       } catch (error) {
         setError(error.message);
       } finally {

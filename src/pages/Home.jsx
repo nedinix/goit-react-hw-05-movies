@@ -4,6 +4,7 @@ import { useFetchTrendingMovies } from 'hooks';
 
 const Home = () => {
   const { movies, isLoading, error } = useFetchTrendingMovies();
+
   return (
     <section>
       <h2>Trending today</h2>

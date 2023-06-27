@@ -12,7 +12,6 @@ export const useFetchMoviesByName = () => {
 
   useEffect(() => {
     if (!query) {
-      setMovies([]);
       return;
     }
 
@@ -21,6 +20,7 @@ export const useFetchMoviesByName = () => {
       try {
         const response = await fetchMoviesByName(query);
         setMovies(response);
+        if (!response) throw new Error('Sorry. There are no movies ... ');
       } catch (error) {
         setError(error.message);
       } finally {
