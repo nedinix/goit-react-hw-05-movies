@@ -8,6 +8,8 @@ import {
   PosterImage,
 } from './MovieCard.styled';
 import PropTypes from 'prop-types';
+import { Suspense } from 'react';
+import { Loader } from 'components/Loader';
 
 export const MovieCard = ({ movie }) => {
   const { title, poster_path, status, vote_average, overview, genres } = movie;
@@ -46,7 +48,9 @@ export const MovieCard = ({ movie }) => {
             </li>
           </InfoList>
         </InfoWrapper>
-        <Outlet />
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
       </div>
     </>
   );
